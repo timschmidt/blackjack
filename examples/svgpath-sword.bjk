@@ -1,0 +1,298 @@
+// BLACKJACK_VERSION_HEADER 0 1 0
+(
+    nodes: [
+        (
+            op_name: "SVGPath",
+            return_value: Some("out_mesh"),
+            inputs: [
+                (
+                    name: "d",
+                    data_type: "BJK_STRING",
+                    kind: External(
+                        promoted: None,
+                    ),
+                ),
+                (
+                    name: "pos",
+                    data_type: "BJK_VECTOR",
+                    kind: External(
+                        promoted: None,
+                    ),
+                ),
+                (
+                    name: "normal",
+                    data_type: "BJK_VECTOR",
+                    kind: Conection(
+                        node_idx: 1,
+                        param_name: "normal",
+                    ),
+                ),
+                (
+                    name: "right",
+                    data_type: "BJK_VECTOR",
+                    kind: Conection(
+                        node_idx: 1,
+                        param_name: "right",
+                    ),
+                ),
+                (
+                    name: "max_width",
+                    data_type: "BJK_SCALAR",
+                    kind: External(
+                        promoted: None,
+                    ),
+                ),
+                (
+                    name: "max_height",
+                    data_type: "BJK_SCALAR",
+                    kind: External(
+                        promoted: None,
+                    ),
+                ),
+                (
+                    name: "preserve_aspect_ratio",
+                    data_type: "BJK_SCALAR",
+                    kind: External(
+                        promoted: None,
+                    ),
+                ),
+                (
+                    name: "segments",
+                    data_type: "BJK_SCALAR",
+                    kind: External(
+                        promoted: None,
+                    ),
+                ),
+                (
+                    name: "u_path",
+                    data_type: "BJK_MESH",
+                    kind: Conection(
+                        node_idx: 2,
+                        param_name: "out_mesh",
+                    ),
+                ),
+                (
+                    name: "u_offset",
+                    data_type: "BJK_SCALAR",
+                    kind: External(
+                        promoted: None,
+                    ),
+                ),
+                (
+                    name: "u_scale",
+                    data_type: "BJK_SCALAR",
+                    kind: External(
+                        promoted: None,
+                    ),
+                ),
+                (
+                    name: "v_path",
+                    data_type: "BJK_MESH",
+                    kind: External(
+                        promoted: None,
+                    ),
+                ),
+                (
+                    name: "v_offset",
+                    data_type: "BJK_SCALAR",
+                    kind: External(
+                        promoted: None,
+                    ),
+                ),
+                (
+                    name: "v_scale",
+                    data_type: "BJK_SCALAR",
+                    kind: External(
+                        promoted: None,
+                    ),
+                ),
+            ],
+            outputs: [
+                (
+                    name: "out_mesh",
+                    data_type: "BJK_MESH",
+                ),
+            ],
+        ),
+        (
+            op_name: "EulerAngles",
+            return_value: Some("forward"),
+            inputs: [
+                (
+                    name: "pitch",
+                    data_type: "BJK_SCALAR",
+                    kind: External(
+                        promoted: None,
+                    ),
+                ),
+                (
+                    name: "yaw",
+                    data_type: "BJK_SCALAR",
+                    kind: External(
+                        promoted: None,
+                    ),
+                ),
+            ],
+            outputs: [
+                (
+                    name: "forward",
+                    data_type: "BJK_VECTOR",
+                ),
+                (
+                    name: "normal",
+                    data_type: "BJK_VECTOR",
+                ),
+                (
+                    name: "right",
+                    data_type: "BJK_VECTOR",
+                ),
+            ],
+        ),
+        (
+            op_name: "Helix",
+            return_value: Some("out_mesh"),
+            inputs: [
+                (
+                    name: "pos",
+                    data_type: "BJK_VECTOR",
+                    kind: External(
+                        promoted: None,
+                    ),
+                ),
+                (
+                    name: "size",
+                    data_type: "BJK_VECTOR",
+                    kind: External(
+                        promoted: None,
+                    ),
+                ),
+                (
+                    name: "start_angle",
+                    data_type: "BJK_SCALAR",
+                    kind: External(
+                        promoted: None,
+                    ),
+                ),
+                (
+                    name: "turns",
+                    data_type: "BJK_SCALAR",
+                    kind: External(
+                        promoted: None,
+                    ),
+                ),
+                (
+                    name: "segments",
+                    data_type: "BJK_SCALAR",
+                    kind: External(
+                        promoted: None,
+                    ),
+                ),
+                (
+                    name: "direction",
+                    data_type: "BJK_STRING",
+                    kind: External(
+                        promoted: None,
+                    ),
+                ),
+            ],
+            outputs: [
+                (
+                    name: "out_mesh",
+                    data_type: "BJK_MESH",
+                ),
+            ],
+        ),
+    ],
+    default_node: Some(0),
+    ui_data: Some((
+        node_positions: [
+            (516.5526, 152.8334),
+            (230.40724, 106.47641),
+            (-106.7814, 180.56418),
+        ],
+        node_order: [
+            1,
+            2,
+            0,
+        ],
+        pan: (372.7542, -92.20401),
+        zoom: 0.9353226,
+        locked_gizmo_nodes: [],
+    )),
+    external_parameters: Some((
+        param_values: {
+            (
+                node_idx: 2,
+                param_name: "start_angle",
+            ): Scalar(0.0),
+            (
+                node_idx: 0,
+                param_name: "v_scale",
+            ): Scalar(1.0),
+            (
+                node_idx: 2,
+                param_name: "size",
+            ): Vector((1.0, 1.0, 1.0)),
+            (
+                node_idx: 0,
+                param_name: "max_height",
+            ): Scalar(10.0),
+            (
+                node_idx: 2,
+                param_name: "direction",
+            ): String("Clockwise"),
+            (
+                node_idx: 1,
+                param_name: "yaw",
+            ): Scalar(0.00000025182962),
+            (
+                node_idx: 2,
+                param_name: "segments",
+            ): Scalar(36.0),
+            (
+                node_idx: 2,
+                param_name: "turns",
+            ): Scalar(1.0),
+            (
+                node_idx: 0,
+                param_name: "segments",
+            ): Scalar(10.0),
+            (
+                node_idx: 0,
+                param_name: "preserve_aspect_ratio",
+            ): Scalar(1.0),
+            (
+                node_idx: 0,
+                param_name: "u_offset",
+            ): Scalar(0.0),
+            (
+                node_idx: 0,
+                param_name: "pos",
+            ): Vector((0.0, 0.0, 0.0)),
+            (
+                node_idx: 0,
+                param_name: "v_offset",
+            ): Scalar(0.0),
+            (
+                node_idx: 2,
+                param_name: "pos",
+            ): Vector((0.0, 0.0, 0.0)),
+            (
+                node_idx: 0,
+                param_name: "max_width",
+            ): Scalar(10.0),
+            (
+                node_idx: 1,
+                param_name: "pitch",
+            ): Scalar(0.0),
+            (
+                node_idx: 0,
+                param_name: "u_scale",
+            ): Scalar(1.0),
+            (
+                node_idx: 0,
+                param_name: "d",
+            ): String("M 4 8 L 10 1 L 13 0 L 12 3 L 5 9 C 6 10 6 11 7 10 C 7 11 8 12 7 12 A 1.42 1.42 0 0 1 6 13 A 5 5 0 0 0 4 10 Q 3.5 9.9 3.5 10.5 T 2 11.8 T 1.2 11 T 2.5 9.5 T 3 9 A 5 5 90 0 0 0 7 A 1.42 1.42 0 0 1 1 6 C 1 5 2 6 3 6 C 2 7 3 7 4 8 M 10 1 L 10 3 L 12 3 L 10.2 2.8 L 10 1"),
+        },
+    )),
+)

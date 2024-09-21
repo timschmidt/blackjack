@@ -1,0 +1,11 @@
+.idea/
+gen/
+target/
+.cargo/
+.vscode
+
+# handy symlinks
+blackjack
+go-bjk
+run
+*.sh

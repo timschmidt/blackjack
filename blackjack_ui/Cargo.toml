@@ -1,0 +1,76 @@
+[package]
+name = "blackjack_ui"
+description = "A procedural, node-based modelling tool, made in Rust"
+homepage = "https://github.com/setzer22/blackjack"
+repository = "https://github.com/setzer22/blackjack"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.62"
+license = "MPL-2.0"
+keywords = ["gamedev", "3d", "modelling", "procedural"]
+authors = ["setzer22"]
+
+[features]
+tracy = ["profiling/profile-with-tracy"]
+
+[dependencies]
+# Workspace dependencies
+blackjack_commons = { path = "../blackjack_commons" }
+blackjack_engine = { path = "../blackjack_engine" }
+
+# Git dependencies
+egui_node_graph = { git = "https://github.com/setzer22/egui_node_graph", rev = "f4009fccc92a5f2132109a661e9bb57cc38b7e51" }
+rend3 = { git = "https://github.com/setzer22/rend3.git", rev = "c1df4dca5247eda11c04c529d6376690717ce4d5" }
+rend3-routine = { git = "https://github.com/setzer22/rend3.git", rev = "c1df4dca5247eda11c04c529d6376690717ce4d5" }
+glsl-include = { git = "https://github.com/setzer22/glsl-include", rev = "d9b1ade" }
+egui-gizmo = { git = "https://github.com/setzer22/egui-gizmo", rev = "a3415a075fc2b2ecd3b26cdef9cb7c1857d77478" }
+
+# Crates.io crates
+egui-winit = { version = "0.19", default-features = false, features = ["links", "bytemuck", "serde"] }
+#egui-winit = { version = "0.19" }
+egui-wgpu = { version = "0.19" }
+egui = { version = "0.19" }
+glam = { version = "0.21.2", features = ["bytemuck"] }
+env_logger = { version = "0.9", default-features = false, features = [
+    "termcolor",
+    "atty",
+] }
+winit = { version = "0.27.2" }
+wgpu = "0.13"
+pollster = "0.2"
+smallvec = { version = "1.7.0" }
+itertools = "0.10"
+anyhow = { version = "1.0", features = ["backtrace"] }
+bytemuck = { version = "1.7", features = ["derive"] }
+ron = "0.7"
+rfd = { version = "0.9.1", default-features = false, features = ["xdg-portal"] }
+float-ord = "0.3.2"
+spin_sleep = "1.0.0"
+rayon = "1.5.1"
+nonmax = "0.5"
+slotmap = { version = "1.0" }
+num-traits = "0.2.14"
+atomic_float = "0.1"
+profiling = { version = "1.0" }
+image = { version = "0.24", default-features = false, features = ["png"] }
+nom = "7.1"
+mlua = { version = "0.8.1", features = ["luau"] }
+notify = "4.0"
+walkdir = "2"
+syntect = "4.6"
+bimap = "0.6.2"
+dyn-clone = "1.0"
+noise = "0.7"
+rstar = "0.9.3"
+wavefront_rs = "1.0.4"
+derive_more = "0.99"
+clap = { version = "4.0", features = ["derive"] }
+once_cell = "1.15"
+wasm-bindgen = "0.2.93"
+#web-sys = ">= 0.3.4, < 0.3.70"
+
+# to access the DOM (to hide the loading text)
+[target.'cfg(target_arch = "wasm32")'.dependencies.web-sys]
+# HACK: pin web-sys to <0.3.70 until a new `eframe` is released containing
+# the following PR: https://github.com/emilk/egui/pull/4980
+version = ">= 0.3.4, < 0.3.70"

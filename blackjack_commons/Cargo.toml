@@ -1,0 +1,19 @@
+[package]
+name = "blackjack_commons"
+description = "A procedural, node-based modelling tool, made in Rust"
+homepage = "https://github.com/setzer22/blackjack"
+repository = "https://github.com/setzer22/blackjack"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.62"
+license = "MPL-2.0"
+keywords = ["gamedev", "3d", "modelling", "procedural"]
+authors = ["setzer22"]
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+glam = { version = "0.21.2", features = ["serde", "bytemuck"] }
+smallvec = { version = "1.7.0", features = ["serde"] }
+itertools = "0.10"
+float-ord = "0.3.2"
