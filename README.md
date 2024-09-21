@@ -38,7 +38,6 @@ Here are the steps in order to try out the early development version of Blackjac
 
 1. Clone this repository
 git clone https://github.com/timschmidt/blackjack
-```
 
 2. Install build dependencies. This may not cover everything, please file an issue or a pull request if you find anything missing:
    * Ubuntu/Debian: `sudo apt install libfontconfig-dev`
