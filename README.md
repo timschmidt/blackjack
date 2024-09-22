@@ -49,9 +49,11 @@ git clone https://github.com/timschmidt/blackjack
 
 4. Download and install emscripten toolchain from: https://emscripten.org/docs/getting_started/downloads.html
 
-5. Run 'cargo build --release --target wasm32-unknown-emscripten' to build for WASM target
+5. export RUSTFLAGS="--cfg=web_sys_unstable_apis"
 
-6. From the same folder, run `cargo run --release --bin blackjack_ui` to launch Blackjack.
+6. Run 'cargo build --release --target wasm32-unknown-emscripten' to build for WASM target
+
+7. From the same folder, run `cargo run --release --bin blackjack_ui` to launch Blackjack.
 
 ### Usage
 Some minimal usage instructions. Please do note that these can and will change frequently during early development:
