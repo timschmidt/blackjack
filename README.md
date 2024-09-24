@@ -36,15 +36,8 @@ Here are the main goals and philosophy behind blackjack, but note that this show
 
 Here are the steps in order to try out the early development version of Blackjack. Binaries and easier installation methods will be provided in the future. The steps below require a complete Rust toolchain using `cargo`, with a minimum supported Rust version (MSRV) of **1.62.0**.
 
-1. Clone this repository, and make sure to download LFS files. In some systems, this may require separately installing a `git-lfs`[^1] package:
-```bash
-git clone https://github.com/setzer22/blackjack
-git lfs install
-git lfs fetch --all
-git lfs pull
-```
-
-[^1]: Linux users can install `git-lfs` with their distro's package manager (`apt install git-lfs` / `yum install git-lfs` / `pacman -S git-lfs`). MacOS users using homebrew can use `brew install git-lfs`. Other users should follow the [git-lfs install instructions](https://git-lfs.github.com/).
+1. Clone this repository
+git clone https://github.com/timschmidt/blackjack
 
 2. Install build dependencies. This may not cover everything, please file an issue or a pull request if you find anything missing:
    * Ubuntu/Debian: `sudo apt install libfontconfig-dev`
@@ -52,7 +45,15 @@ git lfs pull
    * Fedora: `sudo dnf install fontconfig-devel`
 > **Note**: The `fontconfig` native dependency is temporary, and will no longer be necessary once this upstream issue is fixed: https://github.com/rust-windowing/winit/issues/2373
 
-3. From the same folder, run `cargo run --release --bin blackjack_ui` to launch Blackjack.
+3. Install Rust toolchain for WASM target: 'rustup toolchain install wasm32-unknown-emscripten'
+
+4. Download and install emscripten toolchain from: https://emscripten.org/docs/getting_started/downloads.html
+
+5. export RUSTFLAGS="--cfg=web_sys_unstable_apis"
+
+6. Run 'cargo build --release --target wasm32-unknown-emscripten' to build for WASM target
+
+7. From the same folder, run `cargo run --release --bin blackjack_ui` to launch Blackjack.
 
 ### Usage
 Some minimal usage instructions. Please do note that these can and will change frequently during early development:
