@@ -3,7 +3,6 @@ members = [
     "blackjack_commons",
     "blackjack_engine",
     "blackjack_ui",
-#    "blackjack_godot",
     "blackjack_macros",
 ]
 
