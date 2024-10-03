@@ -95,9 +95,9 @@ impl<'lua> FromLua<'lua> for BlackjackValue {
             mlua::Value::Nil => return Ok(BlackjackValue::None),
             mlua::Value::Integer(i) => return Ok(BlackjackValue::Scalar(i as f32)),
             mlua::Value::Number(n) => return Ok(BlackjackValue::Scalar(n as f32)),
-            //mlua::Value::Vector(x, y, z) => {
-            //    return Ok(BlackjackValue::Vector(glam::Vec3::new(x, y, z)))
-            //}
+            mlua::Value::Vector(x, y, z) => {
+                return Ok(BlackjackValue::Vector(glam::Vec3::new(x, y, z)))
+            }
             mlua::Value::String(s) => return Ok(BlackjackValue::String(s.to_str()?.into())),
             mlua::Value::UserData(u) => {
                 if u.is::<SelectionExpression>() {

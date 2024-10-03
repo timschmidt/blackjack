@@ -70,7 +70,7 @@ clap = { version = "4.0", features = ["derive"] }
 once_cell = "1.15"
 wasm-bindgen = "0.2.93"
 #web-sys = { version = ">= 0.3.4, < 0.3.70", features = ["GpuBindGroup", "GpuBuffer", "GpuTextureFormat", "GpuVertexState", "GpuFragmentState", "GpuProgrammableStage"] }
-web-sys = { version = "0.3.70", features = ["GpuBindGroup", "GpuBuffer", "GpuTextureFormat", "GpuVertexState", "GpuFragmentState", "GpuProgrammableStage"] }
+web-sys = { version = "0.3.70", features = ["GpuBindGroup", "GpuBuffer", "GpuTextureFormat", "GpuVertexState", "GpuFragmentState", "GpuProgrammableStage", "HtmlCanvasElement", "Window", "WebGlBuffer", "CanvasRenderingContext2d", "Document", "Element", "WebGlActiveInfo", "WebGl2RenderingContext", "WebGlContextAttributes", "WebGlContextEvent", "WebGlPowerPreference", "WebGlProgram", "WebGlQuery", "WebGlShader", "WebGlSync", "WebGlTexture", "WebGlUniformLocation", "WebGlVertexArrayObject"] }
 
 # to access the DOM (to hide the loading text)
 #[target.'cfg(target_arch = "wasm32")'.dependencies.web-sys]
