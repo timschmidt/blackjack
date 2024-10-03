@@ -21,22 +21,27 @@ impl RootViewport {
                 ui.menu_button("File", |ui| {
                     ui.add_enabled_ui(false, |ui| ui.button("New"));
                     if ui.button("Open…").clicked() {
-                        let file_location = rfd::FileDialog::new()
+                        /*
+                        let file_location = rfd::AsyncFileDialog::new()
                             .add_filter("Blackjack Model", &["bjk"])
-                            .pick_file();
+                            .pick_file()
+                            .await;
                         if let Some(path) = file_location {
                             action = Some(AppRootAction::Load(path))
                         }
+                        */
                     }
                     ui.separator();
                     if ui.button("Save As…").clicked() {
-                        let file_location = rfd::FileDialog::new()
+                        /*
+                        let file_location = rfd::AsyncFileDialog::new()
                             .set_file_name("Untitled.bjk")
                             .add_filter("Blackjack Model", &["bjk"])
                             .save_file();
                         if let Some(path) = file_location {
                             action = Some(AppRootAction::Save(path))
                         }
+                        */
                     }
                     ui.separator();
                     ui.add_enabled_ui(false, |ui| ui.button("Quit"));

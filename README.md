@@ -20,6 +20,8 @@
 ![Modelling herringbone gears in Blackjack](./doc/resources/blackjack_gif6.gif)
 
 
+## Issues
+- https://github.com/mlua-rs/mlua/issues/23
 
 ## Features and goals
 Blackjack **does not aim to replace an industry powerhouse such as Houdini**. Instead, it aims to provide a less cluttered, more robust and user-friendly experience for a small subset of the features that make these tools a great fit in the world of game development and real-time simulations.

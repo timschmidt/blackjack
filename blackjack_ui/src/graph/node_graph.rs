@@ -561,9 +561,10 @@ impl WidgetValueTrait for ValueTypeUi {
                 ui.label(param_name);
                 ui.horizontal(|ui| {
                     if ui.button("Select").clicked() {
+                        /*
                         let new_path = match file_path_mode {
-                            FilePathMode::Open => rfd::FileDialog::new().pick_file(),
-                            FilePathMode::Save => rfd::FileDialog::new().save_file(),
+                            FilePathMode::Open => rfd::AsyncFileDialog::new().pick_file(),
+                            FilePathMode::Save => rfd::AsyncFileDialog::new().save_file(),
                         };
 
                         if let Some(new_path) = new_path {
@@ -572,6 +573,7 @@ impl WidgetValueTrait for ValueTypeUi {
                                 .into_string()
                                 .unwrap_or_else(|err| format!("INVALID PATH: {err:?}"))
                         }
+                        */
                     }
                     if !path.is_empty() {
                         ui.label(path.clone());

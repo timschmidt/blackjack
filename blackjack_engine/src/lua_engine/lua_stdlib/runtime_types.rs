@@ -13,6 +13,35 @@ use super::*;
 #[repr(transparent)]
 pub struct LVec3(pub glam::Vec3);
 impl<'lua> ToLua<'lua> for LVec3 {
+    fn to_lua(self, lua: &'lua Lua) -> mlua::Result<mlua::Value<'lua>> {
+        // Create a Lua table with x, y, z fields to represent the vector
+        let table = lua.create_table()?;
+        table.set("x", self.0.x)?;
+        table.set("y", self.0.y)?;
+        table.set("z", self.0.z)?;
+        Ok(mlua::Value::Table(table))
+    }
+}
+impl<'lua> FromLua<'lua> for LVec3 {
+    fn from_lua(lua_value: mlua::Value<'lua>, lua: &'lua Lua) -> mlua::Result<Self> {
+        match lua_value {
+            // Match against a Lua table with x, y, z fields
+            mlua::Value::Table(table) => {
+                let x: f32 = table.get("x")?;
+                let y: f32 = table.get("y")?;
+                let z: f32 = table.get("z")?;
+                Ok(LVec3(glam::Vec3::new(x, y, z)))
+            },
+            _ => Err(mlua::Error::FromLuaConversionError {
+                from: lua_value.type_name(),
+                to: "Vec3",
+                message: None,
+            }),
+        }
+    }
+}
+/*
+impl<'lua> ToLua<'lua> for LVec3 {
     fn to_lua(self, _lua: &'lua Lua) -> mlua::Result<mlua::Value<'lua>> {
         Ok(mlua::Value::Vector(self.0.x, self.0.y, self.0.z))
     }
@@ -29,6 +58,7 @@ impl<'lua> FromLua<'lua> for LVec3 {
         }
     }
 }
+*/
 impl From<glam::Vec3> for LVec3 {
     fn from(v: glam::Vec3) -> Self {
         Self(v)

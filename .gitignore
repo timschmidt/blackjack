@@ -9,3 +9,4 @@ blackjack
 go-bjk
 run
 *.sh
+.aider*

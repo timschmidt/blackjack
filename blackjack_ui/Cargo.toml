@@ -36,7 +36,8 @@ env_logger = { version = "0.9", default-features = false, features = [
     "atty",
 ] }
 winit = { version = "0.27.2" }
-wgpu = "0.13"
+wgpu = { version = "0.13", default-features = false, features = ["webgl", "emscripten"] }
+wgpu-hal = { version = "0.13.2", default-features = false, features = ["gles"] }
 pollster = "0.2"
 smallvec = { version = "1.7.0" }
 itertools = "0.10"
@@ -54,7 +55,8 @@ atomic_float = "0.1"
 profiling = { version = "1.0" }
 image = { version = "0.24", default-features = false, features = ["png"] }
 nom = "7.1"
-mlua = { version = "0.8.1", features = ["luau"] }
+mlua = { version = "0.8.1", features = ["luau", "vendored"] }
+#mlua = { version = "0.9.7", default-features = false, features = ["lua54", "vendored"] }
 notify = "4.0"
 walkdir = "2"
 syntect = { version = "4.6", default-features = false, features = ["default-fancy"]}
@@ -67,10 +69,11 @@ derive_more = "0.99"
 clap = { version = "4.0", features = ["derive"] }
 once_cell = "1.15"
 wasm-bindgen = "0.2.93"
-web-sys = { version = ">= 0.3.4, < 0.3.70", features = ["GpuBindGroup", "GpuBuffer", "GpuTextureFormat", "GpuVertexState", "GpuFragmentState", "GpuProgrammableStage"] }
+#web-sys = { version = ">= 0.3.4, < 0.3.70", features = ["GpuBindGroup", "GpuBuffer", "GpuTextureFormat", "GpuVertexState", "GpuFragmentState", "GpuProgrammableStage"] }
+web-sys = { version = "0.3.70", features = ["GpuBindGroup", "GpuBuffer", "GpuTextureFormat", "GpuVertexState", "GpuFragmentState", "GpuProgrammableStage"] }
 
 # to access the DOM (to hide the loading text)
-[target.'cfg(target_arch = "wasm32")'.dependencies.web-sys]
+#[target.'cfg(target_arch = "wasm32")'.dependencies.web-sys]
 # HACK: pin web-sys to <0.3.70 until a new `eframe` is released containing
 # the following PR: https://github.com/emilk/egui/pull/4980
-version = ">= 0.3.4, < 0.3.70"
+#version = ">= 0.3.4, < 0.3.70"
